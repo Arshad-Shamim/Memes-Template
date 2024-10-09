@@ -21,6 +21,7 @@ function Card({res}){
 export default function Home() {
     let [error,setError]=useState("eror");
     let [meme,setmeme]=useState([]);
+  
     let navigate=useNavigate();
     useEffect(()=>{
         getJson(setmeme,setError);

@@ -31,7 +31,15 @@ export default function Authorization() {
         "username":e.target.username.value,
         "password":e.target.password.value
     }
-    flag?apiSignIn(data,setLink,setWrongPws,setError):apiSignUp(data,setLink,setError);
+    
+    //for guest people;
+    if(data.username=="guest"&&data.password=="guest"){
+      localStorage.setItem("guest",1);
+      setLink("/meme/home")
+    }
+    else{
+      flag?apiSignIn(data,setLink,setWrongPws,setError):apiSignUp(data,setLink,setError);
+    }
     e.preventDefault();
   }
   
@@ -61,11 +69,11 @@ export default function Authorization() {
           <form onSubmit={(e)=>{handleSubmit(e)}}>
               <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">User Name :</label>
-                <input type="text" name="username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required/>
+                <input type="text" placeholder="enter guest" name="username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required/>
               </div>
               <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">Password</label>
-                <input type="password" name="password" class="form-control" id="exampleInputPassword1" required/>
+                <input type="password" placeholder="enter guest" name="password" class="form-control" id="exampleInputPassword1" required/>
               </div>
               <div>
                 {flag?  <button type="submit" class="btn btn-warning col-12 mt-3">Sign In</button>:<>

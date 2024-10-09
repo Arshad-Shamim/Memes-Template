@@ -1,34 +1,41 @@
 import axios from 'axios';
 
 function getJson(setmeme,setError){
-    console.log(localStorage.getItem('token'));
-    axios.get("http://localhost:2000/meme/data",{
-        headers:{
-            Authorization:`Bearer ${localStorage.getItem('token')}`
-        }
-    })
-    .then((res)=>{
-        if(res.data=="UnauthorizedError")
-        {
-            console.log("hi");
-            setError("UnauthorizedError");
-        }
-        else
-        {
-            console.log("by");
-            setmeme(res.data);
-        }
-    })
-    .then((err)=>{
-        console.log(err);
-    })  
+    let link;   
+    if(localStorage.getItem("guest")==1){
+        link=" https://api.imgflip.com/get_memes";
+        axios.get(link)
+        .then((res)=>{
+            setmeme(res.data.data.memes)
+        })
+        .then((err)=>{
+            console.log(err);
+        })
+    }
+    else{
+        link="http://localhost:2000/meme/data";
+        axios.get(link,{
+            headers:{
+                Authorization:`Bearer ${localStorage.getItem('token')}`
+            }
+        })
+        .then((res)=>{
+            if(res.data=="UnauthorizedError")
+            {
+                console.log("hi");
+                setError("UnauthorizedError");
+            }
+            else
+            {
+                console.log("by");
+                setmeme(res.data);
+            }
+        })
+        .then((err)=>{
+            console.log(err);
+        })  
+    }
     return;
 }
 
-function demo(meme){
-    axios.post("http://localhost:2000/meme/auth/data",meme)
-    .then((res)=>{})
-    .then((err)=>{});
-}
-
-export {getJson,demo};
+export {getJson};

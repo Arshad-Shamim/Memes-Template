@@ -25,6 +25,8 @@ function apiSignIn(data,setLink,setWrongPws,setError){
     .then((res)=>{
         res=res.data;
         if(res.token){
+            console.log(res.token);
+            console.log(typeof(res.token));
             localStorage.setItem("token",res.token);
             setLink("/meme/home");
         }
