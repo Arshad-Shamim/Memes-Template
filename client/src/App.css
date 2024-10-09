@@ -1,0 +1,29 @@
+.ruluko-regular{
+    font-family: "Ruluko", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+  }
+
+  .text{
+    position: absolute;
+    top:45%
+  }
+
+  @media screen and (max-width:879px) {
+    .box-2{
+        height: 60vh;
+        margin-bottom: 2rem;
+    }
+    .text{
+      position: absolute;
+      top:150%;
+    }
+}
+
+.hover-box:hover{
+  background:rgba(245, 245, 245, 0.651);
+  border-radius: 5px;
+}
+
+
+  
