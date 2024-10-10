@@ -33,7 +33,8 @@ This website is a meme generator that allows users to create, search, and share 
 2. **React-Router-Dom:** For navigation and URL query string management.
 3. **React-Draggable:** For drag-and-drop functionality.
 4. **Axios:** For communicating with the API.
-5. **Bootstrap:** Integrated via `import "bootstrap/dist/css/bootstrap.css"` and `import "bootstrap/dist/js/bootstrap.bundle"` for Bootstrap 5 styling.
+5. **gh-phase --save-dev:** For publish website on github.
+6. **Bootstrap:** Integrated via `import "bootstrap/dist/css/bootstrap.css"` and `import "bootstrap/dist/js/bootstrap.bundle"` for Bootstrap 5 styling.
 
 ### Backend
 1. **Express:** For creating the server.
