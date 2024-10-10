@@ -50,7 +50,7 @@ export default function Authorization() {
     <>
     {(error)?<Error error={error} setError={setError}/>:
     <div className='bg-light container-fluid' style={{minHeight:"100vh",paddingTop:"6vh"}}>
-      <div className='col-lg-4 col-6 mx-auto border rounded container bg-danger text-white'>
+      <div className='col-lg-4 col-12 mx-auto border rounded container bg-danger text-white'>
         <div className='container my-4'>
           <div className='text-center'>
             <h2 className='fw-bolder'>

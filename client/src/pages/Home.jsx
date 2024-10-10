@@ -8,7 +8,7 @@ import Error from './error';
 function Card({res}){
   let navigate=useNavigate();
   return(
-    <div className="card col-lg-3 col-5 mx-1  mb-3 bg-warning p-0">
+    <div className="card col-lg-3 col-12 mx-1  mb-3 bg-warning p-0">
       <img src={res.url} class="card-img-top img-fluid" style={{height:"15rem"}} alt="..."/>
       <div class="card-body">
         <h5 class="card-title text-dark">{res.name}</h5>
