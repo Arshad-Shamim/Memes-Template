@@ -13,9 +13,9 @@ function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path='/' element={<Navigate to="/meme"/>}/>
-        <Route path='/meme' element={<Signup/>}/>
-        <Route path='/meme'>
+        <Route path='/' element={<Navigate to="/Memes"/>}/>
+        <Route path='/Memes' element={<Signup/>}/>
+        <Route path='/Memes'>
           <Route path="home" element={<Home/>}/>
           <Route path="edit" element={<Edit/>}/>
         </Route> 

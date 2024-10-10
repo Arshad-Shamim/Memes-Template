@@ -35,7 +35,7 @@ export default function Authorization() {
     //for guest people;
     if(data.username=="guest"&&data.password=="guest"){
       localStorage.setItem("guest",1);
-      setLink("/meme/home")
+      setLink("/Memes/home")
     }
     else{
       flag?apiSignIn(data,setLink,setWrongPws,setError):apiSignUp(data,setLink,setError);

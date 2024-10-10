@@ -11,7 +11,7 @@ function apiSignUp(data,setLink,setError){
         else
         {
             localStorage.setItem("token",res.data.token);
-            setLink("/meme/home");
+            setLink("/Memes/home");
         }
     })
     .then((err)=>{
@@ -28,7 +28,7 @@ function apiSignIn(data,setLink,setWrongPws,setError){
             console.log(res.token);
             console.log(typeof(res.token));
             localStorage.setItem("token",res.token);
-            setLink("/meme/home");
+            setLink("/Memes/home");
         }
         else if(res.data=="server error")
             setError("Server Error");

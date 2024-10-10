@@ -12,7 +12,7 @@ function Card({res}){
       <img src={res.url} class="card-img-top img-fluid" style={{height:"15rem"}} alt="..."/>
       <div class="card-body">
         <h5 class="card-title text-dark">{res.name}</h5>
-        <a  class="btn btn-danger" onClick={(e)=>{navigate(`/meme/edit?url=${res.url}`)}}>Edit</a>
+        <a  class="btn btn-danger" onClick={(e)=>{navigate(`/Memes/edit?url=${res.url}`)}}>Edit</a>
       </div>
     </div>
   )
@@ -32,7 +32,7 @@ export default function Home() {
     <>
       {(error=="UnauthorizedError")?<Error error={error} setError={setError}/>:
           <>
-            {(!error)?navigate("/meme"):
+            {(!error)?navigate("/Memes"):
             <>
               <Nav search={1} meme={meme}/>
               <div className="container-fluid bg-light">
