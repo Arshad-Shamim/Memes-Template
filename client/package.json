@@ -1,5 +1,7 @@
 {
-  "homepage": "https://memes-sigma-rose.vercel.app",
+  "//":"homepage specify that this url https://memes-sigma-rose.vercel.app = / ",
+  "homepage": "https://memes-sigma-rose.vercel.app",   
+
   "name": "meme",
   "version": "0.1.0",
   "private": true,
@@ -24,6 +26,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+
+    "//":"for dulplay on github write both",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
