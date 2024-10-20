@@ -2,6 +2,7 @@ import axios from 'axios';
 
 function getJson(setmeme,setError){
     let link;   
+    console.log(localStorage.getItem("guest"));
     if(localStorage.getItem("guest")==1){
         link=" https://api.imgflip.com/get_memes";
         axios.get(link)
@@ -22,12 +23,10 @@ function getJson(setmeme,setError){
         .then((res)=>{
             if(res.data=="UnauthorizedError")
             {
-                console.log("hi");
                 setError("UnauthorizedError");
             }
             else
             {
-                console.log("by");
                 setmeme(res.data);
             }
         })

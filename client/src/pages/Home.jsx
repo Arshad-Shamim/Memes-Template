@@ -24,8 +24,13 @@ export default function Home() {
   
     let navigate=useNavigate();
     useEffect(()=>{
-        getJson(setmeme,setError);
+        async function temp(){
+          await getJson(setmeme,setError);
+        }
+        temp();
       },[])
+
+      console.log(meme);
     
       console.log(error);
   return(

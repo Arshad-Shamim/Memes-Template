@@ -45,9 +45,8 @@ async function fetchdata(){
                 result  = await database.query(query);
             });
             
-            const data = await database.query("select * from data");
-
-            return await fetchdata();
+            result = await database.query("select * from data");
+            return result[0];
         }
         else
             console.log(err);
