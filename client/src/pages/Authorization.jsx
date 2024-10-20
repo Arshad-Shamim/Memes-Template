@@ -38,6 +38,7 @@ export default function Authorization() {
       setLink("/Memes/home")
     }
     else{
+      localStorage.setItem("guest",0);
       flag?apiSignIn(data,setLink,setWrongPws,setError):apiSignUp(data,setLink,setError);
     }
     e.preventDefault();

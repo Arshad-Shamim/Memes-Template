@@ -56,6 +56,7 @@ async function data(req,res){
     try{
 
             const result = await fetchdata();
+            console.log(result);
             res.send(result);
     }
     catch(err){
