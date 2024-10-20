@@ -8,6 +8,8 @@ This website is a meme generator that allows users to create, search, and share 
 2. **User Authorization:** Users can sign up and log in using their credentials to save their generated memes.
 3. **Meme Generation:** Users can generate memes using predefined templates.
 4. **Logout Functionality:** Users can log out of their accounts when they are done.
+5. **set prerequiment**: we set prereqiment there like cretae database or table if not exit.
+
 
 ## Technologies Used
 1. **Frontend:**
