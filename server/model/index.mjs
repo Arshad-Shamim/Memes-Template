@@ -12,7 +12,7 @@ async function storeUser(data){
     catch(err){
         if(err.errno==1146){
             const database = await con("pmeme");
-            query = "create table data(id varchar(50) primary key,name varchar(100),url varchar(100))";
+            let query = "create table data(id varchar(50) primary key,name varchar(100),url varchar(100))";
             const result = await database.query(query);
             return await storeUser(data);
         }
