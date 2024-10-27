@@ -13,7 +13,7 @@ app.use("/meme/auth",router)
 app.use((err,req,res,next)=>{
     if(err.name=="UnauthorizedError"){
         console.log(err);
-        res.send("UnauthorizedError");
+        res.send("UnauthorizedError")
     }
     res.end();
 })
