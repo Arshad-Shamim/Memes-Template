@@ -33,7 +33,7 @@ export default function Authorization() {
     }
     
     //for guest;
-    //x=10;
+    //x=1;
     if(data.username=="guest" && data.password=="guest"){
       localStorage.setItem("guest",1);
       setLink("/Memes/home")
