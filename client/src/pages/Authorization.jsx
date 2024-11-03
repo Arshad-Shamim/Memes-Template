@@ -32,6 +32,7 @@ export default function Authorization() {
         "password":e.target.password.value
     }
     
+    //for guest;
     if(data.username=="guest"&&data.password=="guest"){
       localStorage.setItem("guest",1);
       setLink("/Memes/home")
