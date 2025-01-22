@@ -66,4 +66,8 @@ async function data(req,res){
     res.end();
 }
 
+async function start(req,res){
+    res.send("Hello!");
+}
+
 export {signUp,signIn,data}
