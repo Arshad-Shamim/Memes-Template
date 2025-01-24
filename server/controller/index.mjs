@@ -70,4 +70,4 @@ async function start(req,res){
     res.send("Hello!");
 }
 
-export {signUp,signIn,data}
+export {signUp,signIn,data,start}

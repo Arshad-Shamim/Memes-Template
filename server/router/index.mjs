@@ -1,5 +1,5 @@
 import {Router} from 'express';
-import {signUp,signIn,data} from '../controller/index.mjs';
+import {signUp,signIn,data,start} from '../controller/index.mjs';
 import {expressjwt} from 'express-jwt'
 
 const router = Router();
