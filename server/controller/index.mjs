@@ -23,7 +23,7 @@ async function signUp(req,res){
             res.status(500);
         }
     }
-
+    
     res.end();
 };
 

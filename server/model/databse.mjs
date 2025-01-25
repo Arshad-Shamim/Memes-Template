@@ -1,31 +1,15 @@
-import mysql from "mysql2/promise";
-import { Sequelize, DataTypes } from 'sequelize';
+import pkg from 'pg'
+const {Pool} = pkg;
 
-export default async function con(data){
-    try{
-        const connection = await mysql.createConnection({
-            "host":"localhost",
-            "user":"root",
-            "password1":"11819",
-            "database":data
-        });
-        
-        connection.connect();
-        return connection;
-    }
-    catch(err){
-        if(err.errno==1049){
-            console.log("create a database");
-            const connection = await mysql.createConnection({
-                "host":"localhost",
-                "user":"root",
-                "password1":"11819"
-            });
+export default function dbConnect(){
+    const pool = new Pool({
+        host:"aws-0-ap-south-1.pooler.supabase.com",
+        port:"6543",
+        user:"postgres.horfkfwbematpjnqneyz",
+        password:"arShad@786",
+        database:"postgres",
+        ssl:{rejectUnauthorized:false,},
+    });
 
-            connection.connect();
-            let query = `create database ${data}`
-            await connection.query(query);
-            return await con(data);
-        }
-    }
+    return pool;
 }

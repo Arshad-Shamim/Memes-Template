@@ -1,55 +1,39 @@
 import { data } from '../controller/index.mjs';
-import con from './databse.mjs';
+import dbConnect from './databse.mjs';
 import {memesJson} from './memejson.js';
 
 async function storeUser(data){
     try{
-            const database=await con("Pmeme");
-            let query  = `insert into users value(\"${data.username}\",\"${data.password}\")`;
+            const database=dbConnect();
+            let query  = `insert into memecraft_user values('${data.username}','${data.password}')`;
             let result = await database.query(query);
             return result;
     }
     catch(err){
-        if(err.errno==1146){
-            const database = await con("pmeme");
-            let query = "create table users(username varchar(50) primary key,password varchar(50))";
-            const result = await database.query(query);
-            return await storeUser(data);
-        }
-        else
-            console.log(err);
+        console.log("store error",err);
     }
 }   
 
 async function verifyUser(data){
-    const database = await con("Pmeme");
-    let query = `select username from users where username=\"${data.username}\" and password=\"${data.password}\"`
-    const result = await database.query(query);
-    return result[0];
+    try{
+        const database = dbConnect();
+        let query = `select "username" from memecraft_user where "username"='${data.username}' and "password"='${data.password}'`
+        const result = await database.query(query);
+        return result.rows;
+    }
+    catch(err){
+        console.log("verift error ",err);
+    }
 }
 
 async function fetchdata(){
     try{
-        const database = await con("pmeme");
-        const result = await database.query("select * from data");
-        return result[0];
+        const database = dbConnect();
+        const result = await database.query("select * from memecraft_data");
+        return result.rows;
     }
     catch(err){
-        if(err.errno==1146){
-            const database = await con("pmeme");
-            let query = "create table data(id varchar(50) primary key,name varchar(100),url varchar(100))";
-            let result = await database.query(query);
-            
-            memesJson.map(async (el)=>{
-                query =`insert into data value(\"${el.id}\",\"${el.name}\",\"${el.url}\")`;
-                result  = await database.query(query);
-            });
-            
-            result = await database.query("select * from data");
-            return result[0];
-        }
-        else
-            console.log(err);
+        console.log("fatch :",err);
     }
 }
 
